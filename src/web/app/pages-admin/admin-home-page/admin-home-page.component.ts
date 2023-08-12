@@ -27,6 +27,8 @@ export class AdminHomePageComponent {
   instructorEmail: string = '';
   instructorInstitution: string = '';
 
+  hasMissingFields: boolean = false;
+
   instructorsConsolidated: InstructorData[] = [];
   activeRequests: number = 0;
 
@@ -80,7 +82,7 @@ export class AdminHomePageComponent {
    */
   validateAndAddInstructorDetail(): void {
     if (!this.instructorName || !this.instructorEmail || !this.instructorInstitution) {
-      // TODO handle error
+      this.hasMissingFields = true;
       return;
     }
     this.instructorsConsolidated.push({
@@ -93,6 +95,7 @@ export class AdminHomePageComponent {
     this.instructorName = '';
     this.instructorEmail = '';
     this.instructorInstitution = '';
+    this.hasMissingFields = false;
   }
 
   /**

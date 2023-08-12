@@ -41,6 +41,10 @@
       <input class="form-control" type="text" id="instructor-institution" [(ngModel)]="instructorInstitution">
     </div>
 
+    <div class="alert alert-danger margin-top-30px" role="alert" *ngIf="hasMissingFields">
+      Please fill in all the fields before adding the instructor.
+    </div>
+
     <div class="top-padded">
       <button class="btn btn-primary" id="add-instructor" (click)="validateAndAddInstructorDetail()">Add Instructor</button>
     </div>
